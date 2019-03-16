@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import program.model.Transformators;
+import program.model.Transformers;
 
 @Repository
-public class TransformatorsDaoImpl implements TransformatorsDao {
+public class TransformersDaoImpl implements TransformersDao {
   @Autowired
   private SessionFactory sessionFactory;
 
   @Override
   @SuppressWarnings("unchecked")
-  public List<Transformators> findAll() {
+  public List<Transformers> findAll() {
     // Open a session
     Session session = sessionFactory.openSession();
 
     // Get all transformators with a Hibernate criteria
-    List<Transformators> transformators = session.createCriteria(Transformators.class).list();
+    List<Transformers> transformators = session.createCriteria(Transformers.class).list();
 
     // Close the session
     session.close();
@@ -29,12 +29,12 @@ public class TransformatorsDaoImpl implements TransformatorsDao {
   }
 
   @Override
-  public Transformators findByName(String name) {
+  public Transformers findByName(String name) {
     // Open a session
     Session session = sessionFactory.openSession();
 
     // Get transformer with a specific name
-    Transformators trasnformer = session.get(Transformators.class, name);
+    Transformers trasnformer = session.get(Transformers.class, name);
 
     // close the session
     session.close();
@@ -43,7 +43,7 @@ public class TransformatorsDaoImpl implements TransformatorsDao {
   }
 
   @Override
-  public void save(Transformators transformator) {
+  public void save(Transformers transformer) {
     // Open a session
     Session session = sessionFactory.openSession();
 
@@ -51,7 +51,7 @@ public class TransformatorsDaoImpl implements TransformatorsDao {
     session.beginTransaction();
 
     // Save the category
-    session.saveOrUpdate(transformator);
+    session.saveOrUpdate(transformer);
 
     // Commit the transactaion
     session.getTransaction().commit();
@@ -62,7 +62,7 @@ public class TransformatorsDaoImpl implements TransformatorsDao {
   }
 
   @Override
-  public void delete(Transformators transformator) {
+  public void delete(Transformers transformer) {
     // OPen a session
     Session session = sessionFactory.openSession();
 
@@ -70,7 +70,7 @@ public class TransformatorsDaoImpl implements TransformatorsDao {
     session.beginTransaction();
 
     // Save the category
-    session.delete(transformator);
+    session.delete(transformer);
 
     // Commit the transactaion
     session.getTransaction().commit();

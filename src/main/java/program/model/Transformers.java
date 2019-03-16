@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Pattern;
 
 @Entity
-public class Transformators {
+public class Transformers {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -48,7 +48,7 @@ public class Transformators {
 
   private String producent;
 
-  public Transformators() {}
+  public Transformers() {}
 
   public Long getId() {
     return id;
